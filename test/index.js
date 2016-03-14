@@ -92,5 +92,19 @@ describe('Mutend', function () {
     
     expect(test.get()).to.equal('a')
   })
+  
+  it('should works constantly', function () {
+    let moduleA = {
+      constructor() {
+        this.a = 'a'
+      }
+    }
+    class Test extends mutend(Base, moduleA) {}
+    let test = new Test()
+    let test2 = new Test()
+    
+    expect(test.a).to.equal('a')
+    expect(test2.a).to.equal('a')
+  })
 })
   
